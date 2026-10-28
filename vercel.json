@@ -1,0 +1,5 @@
+{
+  "buildCommand": "rm -rf .vercel-output && mkdir -p .vercel-output && cp -r dist/. .vercel-output/",
+  "outputDirectory": ".vercel-output",
+  "rewrites": [{ "source": "/functions/v1/app/(.*)", "destination": "/api/news" }]
+}

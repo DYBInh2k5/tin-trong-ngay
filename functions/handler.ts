@@ -1,4 +1,4 @@
-// Module pure-JS để kiểm thử cục bộ bằng Node; Deno.serve nằm ở index.ts.
+// Logic tổng hợp RSS, dùng chung cho Deno (index.ts), Vercel (api/news.ts) và test cục bộ.
 export const SOURCES = [
   { id: "vnexpress", name: "VnExpress", url: "https://vnexpress.net/rss/tin-moi-nhat.rss" },
   { id: "vnexpress-the-thao", name: "VnExpress - Thể thao", url: "https://vnexpress.net/rss/the-thao.rss" },
@@ -20,7 +20,7 @@ export const SOURCES = [
 export const CACHE_SECONDS = 900;
 export const PER_SOURCE_LIMIT = 25;
 export const TOTAL_LIMIT = 180;
-export const FETCH_TIMEOUT_MS = 7000;
+export const FETCH_TIMEOUT_MS = 5000;
 
 export const decodeEntities = (text) =>
   String(text || "")
