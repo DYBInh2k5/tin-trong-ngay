@@ -1,4 +1,4 @@
-import { createHandler } from "../functions/handler.ts";
+import { createHandler } from "../functions/handler.mjs";
 
 const handler = createHandler();
 const base = "http://127.0.0.1:8000";

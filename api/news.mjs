@@ -1,13 +1,12 @@
-import type { IncomingMessage, ServerResponse } from "node:http";
-import { createHandler } from "../functions/handler.ts";
+import { createHandler } from "../functions/handler.mjs";
 
 const handler = createHandler();
 
-export default async function news(req: IncomingMessage, res: ServerResponse) {
+export default async function news(req, res) {
   const host = req.headers.host || "localhost";
   const request = new Request(`https://${host}${req.url || "/"}`, {
     method: req.method,
-    headers: new Headers(req.headers as Record<string, string>),
+    headers: new Headers(req.headers),
   });
   const response = await handler(request);
   res.writeHead(response.status, {

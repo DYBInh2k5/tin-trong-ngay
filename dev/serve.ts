@@ -1,5 +1,5 @@
 // Server preview cục bộ: phục vụ dist/ và chạy Edge Function ngay trong tiến trình Node.
-import { createHandler } from "../functions/handler.ts";
+import { createHandler } from "../functions/handler.mjs";
 import { readFile } from "node:fs/promises";
 import { extname, join, normalize } from "node:path";
 import { createServer } from "node:http";

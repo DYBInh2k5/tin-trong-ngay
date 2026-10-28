@@ -1,4 +1,4 @@
-// Logic tổng hợp RSS, dùng chung cho Deno (index.ts), Vercel (api/news.ts) và test cục bộ.
+// Logic tổng hợp RSS, dùng chung cho Deno (index.ts), Vercel (api/news.mjs) và test cục bộ.
 export const SOURCES = [
   { id: "vnexpress", name: "VnExpress", url: "https://vnexpress.net/rss/tin-moi-nhat.rss" },
   { id: "vnexpress-the-thao", name: "VnExpress - Thể thao", url: "https://vnexpress.net/rss/the-thao.rss" },
