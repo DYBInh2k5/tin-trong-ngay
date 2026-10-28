@@ -1,0 +1,11 @@
+{
+  "name": "tin-trong-ngay",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Bang tin tu dong tong hop RSS bao chi Viet Nam (Qoder Site)",
+  "scripts": {
+    "dev": "node --experimental-strip-types --no-warnings dev/serve.ts",
+    "check:news": "node --experimental-strip-types --no-warnings dev/check-news.ts"
+  }
+}
