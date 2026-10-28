@@ -256,7 +256,7 @@ function stamp() {
   els.footStamp.textContent = at ? `Bảng tin tạo lúc ${dayFmt.format(at)} ${timeFmt.format(at)}` : "";
 }
 
-async function load({ silent = false } = {}) {
+async function load({ silent = false, attempt = 1 } = {}) {
   if (state.loading) return;
   state.loading = true;
   els.refresh.classList.toggle("is-busy", !silent);
@@ -268,10 +268,15 @@ async function load({ silent = false } = {}) {
     applyData(data);
     banner(data.stale ? data.note : "", data.stale ? "warn" : "");
   } catch (error) {
+    if (attempt < 2) {
+      state.loading = false;
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+      return load({ silent, attempt: attempt + 1 });
+    }
     banner(
       silent
         ? "Chưa lấy được bảng tin mới, sẽ thử lại sau vài phút. (" + error.message + ")"
-        : "Không tải được bảng tin (" + error.message + "). Máy chủ tin hoạt động khi site đã publish; bấm nút tải lại để thử.",
+        : "Máy chủ tin vừa trả lỗi (" + error.message + "). Bấm nút tải lại để lấy bảng tin mới nhất.",
       "error",
     );
   } finally {
